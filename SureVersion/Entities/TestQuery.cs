@@ -69,6 +69,8 @@ namespace SureVersion.Entities
             HttpResponseMessage HttpResponse = null;
             using (HttpClient Client = new HttpClient())
             {
+                Client.Timeout = TimeSpan.FromSeconds(3);
+
                 try
                 {
                     Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -85,7 +87,7 @@ namespace SureVersion.Entities
                             break;
                         case "GET":
                         default:
-                            HttpResponse = Client.GetAsync(Url).Result;
+                            HttpResponse = Client.GetAsync(Url).GetAwaiter().GetResult();
                             break;
                     }
 
@@ -93,7 +95,7 @@ namespace SureVersion.Entities
 
                     if (_IsVersion)
                     {
-                        Result.Content = HttpResponse.Content.ReadAsAsync<Settings>().Result;
+                        Result.Content = HttpResponse.Content.ReadAsAsync<Settings>().GetAwaiter().GetResult();
                     }
                     else
                     {
@@ -109,6 +111,16 @@ namespace SureVersion.Entities
                 }
 
                 this.HttpResult = Result;
+
+
+                if (this._IsVersion && this.HttpResult.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    this.ExecuteResult = this.HttpResult.GetContent<Settings>().CurrentVersion;
+                }
+                else
+                {
+                    this.ExecuteResult = this.HttpResult.Content.ToString();
+                }
             }
         }
     }

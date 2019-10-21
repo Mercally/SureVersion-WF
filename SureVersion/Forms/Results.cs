@@ -19,14 +19,6 @@ namespace SureVersion.Forms
             InitDataGridResult();
         }
 
-        public Results(List<TestQuery> ListTestQuery)
-        {
-            InitializeComponent();
-            InitDataGridResult();
-
-            UpdateGrid(ListTestQuery);
-        }
-
         private void InitDataGridResult()
         {
             DataGridResult.ColumnCount = 8;
@@ -41,45 +33,57 @@ namespace SureVersion.Forms
             DataGridResult.Columns[7].Name = "Status";
         }
 
-        public void UpdateGrid(List<TestQuery> QueryResult)
+        /// <summary>
+        /// Actualiza el texto de estado dentro del formulario.
+        /// </summary>
+        /// <param name="status">El estado a mostrar en el texto.</param>
+        public void UpdateStatus(string status)
         {
-            DataGridResult.Rows.Clear();
+            this.LblStatus.Text = "Status: " + status;
+        }
 
-            foreach (var Result in QueryResult)
+        public void ClearDataGrid()
+        {
+            if (this.DataGridResult != null)
             {
-                DataGridResult.Rows.Add(Result.ToArrayObject());
+                this.DataGridResult.Rows.Clear();
             }
+        }
 
-            for (int i = 0; i < DataGridResult.Rows.Count; i++)
+        public void UpdateGrid(TestQuery queryResult)
+        {
+            DataGridResult.Rows.Add(queryResult.ToArrayObject());
+
+            int index = DataGridResult.Rows.Count - 1;
+
+            int StatusCode = queryResult.HttpResult.StatusCode.GetHashCode();
+
+            if (StatusCode >= 200 && StatusCode <= 399)
             {
-                int StatusCode = QueryResult[i].HttpResult.StatusCode.GetHashCode();
-                if (StatusCode >= 200 && StatusCode <= 399)
+                DataGridResult.Rows[index].DefaultCellStyle = new DataGridViewCellStyle()
                 {
-                    DataGridResult.Rows[i].DefaultCellStyle = new DataGridViewCellStyle()
-                    {
-                        BackColor = Color.Green,
-                        ForeColor = Color.White,
-                        SelectionForeColor = Color.White
-                    };
-                }
-                else if (StatusCode >= 400 && StatusCode <= 499)
+                    BackColor = Color.Green,
+                    ForeColor = Color.White,
+                    SelectionForeColor = Color.White
+                };
+            }
+            else if (StatusCode >= 400 && StatusCode <= 499)
+            {
+                DataGridResult.Rows[index].DefaultCellStyle = new DataGridViewCellStyle()
                 {
-                    DataGridResult.Rows[i].DefaultCellStyle = new DataGridViewCellStyle()
-                    {
-                        BackColor = Color.Orange,
-                        ForeColor = Color.White,
-                        SelectionForeColor = Color.White
-                    };
-                }
-                else
+                    BackColor = Color.Orange,
+                    ForeColor = Color.White,
+                    SelectionForeColor = Color.White
+                };
+            }
+            else
+            {
+                DataGridResult.Rows[index].DefaultCellStyle = new DataGridViewCellStyle()
                 {
-                    DataGridResult.Rows[i].DefaultCellStyle = new DataGridViewCellStyle()
-                    {
-                        BackColor = Color.Red,
-                        ForeColor = Color.White,
-                        SelectionForeColor = Color.White
-                    };
-                }
+                    BackColor = Color.Red,
+                    ForeColor = Color.White,
+                    SelectionForeColor = Color.White
+                };
             }
         }
     }

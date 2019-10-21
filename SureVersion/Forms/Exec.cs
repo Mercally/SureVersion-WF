@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,6 +19,8 @@ namespace SureVersion.Forms
         private XmlTest XMLTest { get; set; }
         private XmlProyect XMLProyect { get; set; }
         private XmlTestQuery XMLTestQuery { get; set; }
+        public List<TestQuery> ListTestsQuery { get; set; }
+        public Results FormResults { get; set; }
 
         public Exec()
         {
@@ -63,7 +66,7 @@ namespace SureVersion.Forms
         {
             if (CmbxProyects.SelectedValue == null && CmbxEnverioments.SelectedValue == null)
                 XMLTestQuery.All();
-            else if (CmbxProyects.SelectedValue == null && CmbxEnverioments.SelectedValue != null) 
+            else if (CmbxProyects.SelectedValue == null && CmbxEnverioments.SelectedValue != null)
                 XMLTestQuery.ByEnverioment(CmbxEnverioments.SelectedValue.ToString());
             else if (CmbxProyects.SelectedValue != null && CmbxEnverioments.SelectedValue == null)
                 XMLTestQuery.ByProyect(CmbxProyects.SelectedValue.ToString());
@@ -73,23 +76,35 @@ namespace SureVersion.Forms
 
         private void BtnExecute_Click(object sender, EventArgs e)
         {
-            var ListTestQuery = XMLTestQuery.GetData();
+            this.FormResults = new Results();
+            this.ListTestsQuery = XMLTestQuery.GetData();
 
-            foreach (var Test in ListTestQuery)
+            this.FormResults.UpdateStatus("Working");
+
+            ThreadStart threadStart = new ThreadStart(ExecuteListTestsQuery);
+            Thread thread = new Thread(threadStart);
+            thread.Start();
+
+            
+            this.FormResults.ClearDataGrid();
+            this.FormResults.Show();
+        }
+
+        private void ExecuteListTestsQuery()
+        {
+            int countTests = this.ListTestsQuery.Count;
+            int countExecute = 0;
+
+            foreach (var testQuery in this.ListTestsQuery)
             {
-                Test.ExecuteTest();
-                if (Test._IsVersion && Test.HttpResult.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    Test.ExecuteResult = Test.HttpResult.GetContent<Settings>().CurrentVersion;
-                }
-                else
-                {
-                    Test.ExecuteResult = Test.HttpResult.Content.ToString();
-                }
+                countExecute++;
+                this.FormResults.UpdateStatus($"Working ({countExecute}/{countTests})");
+
+                testQuery.ExecuteTest();
+                this.FormResults.UpdateGrid(testQuery);
             }
 
-            Results FormResult = new Results(ListTestQuery);
-            FormResult.Show();
+            this.FormResults.UpdateStatus($"Finished ({countExecute}/{countTests})");
         }
 
         private void Exec_Load(object sender, EventArgs e)

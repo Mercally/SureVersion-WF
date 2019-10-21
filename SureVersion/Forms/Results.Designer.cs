@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Results));
             this.DataGridResult = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.LblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridResult)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -39,12 +41,13 @@
             // 
             this.DataGridResult.AllowUserToAddRows = false;
             this.DataGridResult.AllowUserToDeleteRows = false;
+            this.DataGridResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.DataGridResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridResult.Location = new System.Drawing.Point(0, 0);
             this.DataGridResult.Name = "DataGridResult";
             this.DataGridResult.ReadOnly = true;
-            this.DataGridResult.Size = new System.Drawing.Size(984, 434);
+            this.DataGridResult.Size = new System.Drawing.Size(984, 421);
             this.DataGridResult.TabIndex = 0;
             // 
             // panel1
@@ -52,29 +55,45 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 93);
+            this.panel1.Size = new System.Drawing.Size(984, 87);
             this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.LblStatus);
             this.panel2.Controls.Add(this.DataGridResult);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 93);
+            this.panel2.Location = new System.Drawing.Point(0, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(984, 434);
+            this.panel2.Size = new System.Drawing.Size(984, 440);
             this.panel2.TabIndex = 2;
+            // 
+            // LblStatus
+            // 
+            this.LblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblStatus.AutoSize = true;
+            this.LblStatus.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblStatus.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.LblStatus.Location = new System.Drawing.Point(3, 424);
+            this.LblStatus.Name = "LblStatus";
+            this.LblStatus.Size = new System.Drawing.Size(43, 16);
+            this.LblStatus.TabIndex = 5;
+            this.LblStatus.Text = "Status:";
             // 
             // Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(984, 527);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Results";
             this.Text = "Results";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridResult)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -84,5 +103,6 @@
         private System.Windows.Forms.DataGridView DataGridResult;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label LblStatus;
     }
 }
