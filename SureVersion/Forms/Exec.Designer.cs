@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.CheckSaveRecords = new System.Windows.Forms.CheckBox();
             this.BtnExecute = new System.Windows.Forms.Button();
+            this.BtnRefreshProyects = new System.Windows.Forms.Button();
             this.TitleBar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.GroupFiltro.SuspendLayout();
@@ -97,6 +98,7 @@
             // 
             // GroupFiltro
             // 
+            this.GroupFiltro.Controls.Add(this.BtnRefreshProyects);
             this.GroupFiltro.Controls.Add(this.BtnClean);
             this.GroupFiltro.Controls.Add(this.BtnQuery);
             this.GroupFiltro.Controls.Add(this.CmbxEnverioments);
@@ -148,7 +150,7 @@
             this.CmbxProyects.FormattingEnabled = true;
             this.CmbxProyects.Location = new System.Drawing.Point(71, 27);
             this.CmbxProyects.Name = "CmbxProyects";
-            this.CmbxProyects.Size = new System.Drawing.Size(864, 21);
+            this.CmbxProyects.Size = new System.Drawing.Size(791, 21);
             this.CmbxProyects.TabIndex = 3;
             // 
             // label2
@@ -216,6 +218,17 @@
             this.BtnExecute.UseVisualStyleBackColor = true;
             this.BtnExecute.Click += new System.EventHandler(this.BtnExecute_Click);
             // 
+            // BtnRefreshProyects
+            // 
+            this.BtnRefreshProyects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnRefreshProyects.Location = new System.Drawing.Point(868, 25);
+            this.BtnRefreshProyects.Name = "BtnRefreshProyects";
+            this.BtnRefreshProyects.Size = new System.Drawing.Size(67, 23);
+            this.BtnRefreshProyects.TabIndex = 9;
+            this.BtnRefreshProyects.Text = "Recargar";
+            this.BtnRefreshProyects.UseVisualStyleBackColor = true;
+            this.BtnRefreshProyects.Click += new System.EventHandler(this.BtnRefreshProyects_Click);
+            // 
             // Exec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,5 +270,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox CheckSaveRecords;
         private System.Windows.Forms.Button BtnExecute;
+        private System.Windows.Forms.Button BtnRefreshProyects;
     }
 }

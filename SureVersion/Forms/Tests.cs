@@ -60,25 +60,31 @@ namespace SureVersion.Forms
 
             if (string.IsNullOrWhiteSpace(TxtName.Text))
             {
-                MessageBox.Show("Debe ingresar un nombre.");
+                MessageBox.Show("Debe ingresar un nombre.", "No válido.");
                 return null;
             }
 
             if (CmbxProyects.SelectedValue == null)
             {
-                MessageBox.Show("Aun no ha seleccionado un proyecto.");
+                MessageBox.Show("Aun no ha seleccionado un proyecto.", "No válido.");
                 return Proyect;
             }
 
             if (CmbxEnverioments.SelectedValue == null)
             {
-                MessageBox.Show("Aun no ha seleccionado un ambiente.");
+                MessageBox.Show("Aun no ha seleccionado un ambiente.", "No válido.");
+                return Proyect;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtUrl.Text))
+            {
+                MessageBox.Show("Debe ingresar un URL.", "No válido.");
                 return Proyect;
             }
 
             if (CmbxVerb.SelectedValue == null)
             {
-                MessageBox.Show("Aun no ha seleccionado un verbo http.");
+                MessageBox.Show("Aun no ha seleccionado un verbo http.", "No válido.");
                 return Proyect;
             }
 

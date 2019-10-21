@@ -79,7 +79,6 @@ namespace SureVersion.Util
                     }
                 }
 
-                //MessageBox.Show("Datos actualizados correctamente.");
                 return true;
             }
             catch (ArgumentException ArEx)

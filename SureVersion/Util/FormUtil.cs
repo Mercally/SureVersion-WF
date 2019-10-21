@@ -45,20 +45,25 @@ namespace SureVersion.Util
             }
         }
 
-        public static void Update_List(ComboBox pComboBox, IEnumerable<KeyValuePair<string, string>> pList, string pValueMember = "Key", string pDisplayMember = "Value")
+        public static void Update_List(
+            ComboBox comboBox, 
+            IEnumerable<KeyValuePair<string, string>> list, 
+            string ValueMember = "Key", 
+            string DisplayMember = "Value",
+            string DefaultOption = "[SELECCIONE]")
         {
-            if (pList != null)
+            if (list != null)
             {
                 BindingList<KeyValuePair<string, string>> BindingList = 
-                    new BindingList<KeyValuePair<string, string>>(DefaultList(pList));
+                    new BindingList<KeyValuePair<string, string>>(DefaultList(list, DefaultOption));
 
                 BindingSource BSource = new BindingSource
                 {
                     DataSource = BindingList
                 };
-                pComboBox.DataSource = BSource;
-                pComboBox.ValueMember = pValueMember;
-                pComboBox.DisplayMember = pDisplayMember;
+                comboBox.DataSource = BSource;
+                comboBox.ValueMember = ValueMember;
+                comboBox.DisplayMember = DisplayMember;
                 //pComboBox.Refresh();
             }
         }
@@ -81,11 +86,11 @@ namespace SureVersion.Util
             }
         }
 
-        private static List<KeyValuePair<string, string>> DefaultList(IEnumerable<KeyValuePair<string, string>> pInitList)
+        private static List<KeyValuePair<string, string>> DefaultList(IEnumerable<KeyValuePair<string, string>> pInitList, string defaultOption)
         {
             var InitList = new List<KeyValuePair<string, string>>(pInitList);
 
-            InitList.Insert(0, new KeyValuePair<string, string>(null, "SELECCIONE"));
+            InitList.Insert(0, new KeyValuePair<string, string>(null, defaultOption));
 
             return InitList;
         }

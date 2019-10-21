@@ -56,7 +56,7 @@ namespace SureVersion.Forms
         {
             if (string.IsNullOrWhiteSpace(TxtNombreNuevo.Text))
             {
-                MessageBox.Show("Debe ingresar un nombre.");
+                MessageBox.Show("Debe ingresar un nombre de proyecto.", "No válido.");
                 return null;
             }
 

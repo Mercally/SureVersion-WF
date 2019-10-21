@@ -190,9 +190,9 @@
             this.LblNombreNuevo.AutoSize = true;
             this.LblNombreNuevo.Location = new System.Drawing.Point(13, 29);
             this.LblNombreNuevo.Name = "LblNombreNuevo";
-            this.LblNombreNuevo.Size = new System.Drawing.Size(47, 13);
+            this.LblNombreNuevo.Size = new System.Drawing.Size(51, 13);
             this.LblNombreNuevo.TabIndex = 0;
-            this.LblNombreNuevo.Text = "Nombre:";
+            this.LblNombreNuevo.Text = "Nombre*:";
             // 
             // TitleBar
             // 

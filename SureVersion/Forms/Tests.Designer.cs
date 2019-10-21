@@ -99,9 +99,9 @@
             this.LblSlctProyect.AutoSize = true;
             this.LblSlctProyect.Location = new System.Drawing.Point(12, 59);
             this.LblSlctProyect.Name = "LblSlctProyect";
-            this.LblSlctProyect.Size = new System.Drawing.Size(52, 13);
+            this.LblSlctProyect.Size = new System.Drawing.Size(56, 13);
             this.LblSlctProyect.TabIndex = 5;
-            this.LblSlctProyect.Text = "Proyecto:";
+            this.LblSlctProyect.Text = "Proyecto*:";
             // 
             // CmbxProyects
             // 
@@ -110,7 +110,7 @@
             this.CmbxProyects.FormattingEnabled = true;
             this.CmbxProyects.Location = new System.Drawing.Point(75, 56);
             this.CmbxProyects.Name = "CmbxProyects";
-            this.CmbxProyects.Size = new System.Drawing.Size(848, 21);
+            this.CmbxProyects.Size = new System.Drawing.Size(824, 21);
             this.CmbxProyects.TabIndex = 2;
             // 
             // LblScope
@@ -118,9 +118,9 @@
             this.LblScope.AutoSize = true;
             this.LblScope.Location = new System.Drawing.Point(12, 88);
             this.LblScope.Name = "LblScope";
-            this.LblScope.Size = new System.Drawing.Size(54, 13);
+            this.LblScope.Size = new System.Drawing.Size(58, 13);
             this.LblScope.TabIndex = 7;
-            this.LblScope.Text = "Ambiente:";
+            this.LblScope.Text = "Ambiente*:";
             // 
             // CmbxEnverioments
             // 
@@ -192,11 +192,11 @@
             // BtnRefreshProyects
             // 
             this.BtnRefreshProyects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRefreshProyects.Location = new System.Drawing.Point(941, 54);
+            this.BtnRefreshProyects.Location = new System.Drawing.Point(905, 55);
             this.BtnRefreshProyects.Name = "BtnRefreshProyects";
-            this.BtnRefreshProyects.Size = new System.Drawing.Size(34, 23);
+            this.BtnRefreshProyects.Size = new System.Drawing.Size(67, 23);
             this.BtnRefreshProyects.TabIndex = 8;
-            this.BtnRefreshProyects.Text = "Refresh";
+            this.BtnRefreshProyects.Text = "Recargar";
             this.BtnRefreshProyects.UseVisualStyleBackColor = true;
             this.BtnRefreshProyects.Click += new System.EventHandler(this.BtnRefreshProyects_Click);
             // 
@@ -213,7 +213,7 @@
             // 
             // TxtIdTest
             // 
-            this.TxtIdTest.Location = new System.Drawing.Point(212, 145);
+            this.TxtIdTest.Location = new System.Drawing.Point(861, 146);
             this.TxtIdTest.Name = "TxtIdTest";
             this.TxtIdTest.Size = new System.Drawing.Size(116, 20);
             this.TxtIdTest.TabIndex = 17;
@@ -233,9 +233,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Nombre:";
+            this.label3.Text = "Nombre*:";
             // 
             // CmbxVerb
             // 
@@ -252,9 +252,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Verbo HTTP:";
+            this.label2.Text = "Verbo HTTP*:";
             // 
             // TxtUrl
             // 
@@ -270,9 +270,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 113);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Url:";
+            this.label1.Text = "Url*:";
             // 
             // DataGridTests
             // 

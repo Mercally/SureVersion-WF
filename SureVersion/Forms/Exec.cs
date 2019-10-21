@@ -30,7 +30,7 @@ namespace SureVersion.Forms
 
             XMLProyect = new XmlProyect(new XmlUtil());
 
-            XMLTestQuery = new XmlTestQuery(new XmlUtil(), DataGridPruebas);
+            XMLTestQuery = new XmlTestQuery(new XmlUtil(), this.DataGridPruebas);
 
             UpdateListProyects();
 
@@ -39,12 +39,12 @@ namespace SureVersion.Forms
 
         private void UpdateListProyects()
         {
-            FormUtil.Update_List(CmbxProyects, XMLProyect.GetListProyects());
+            FormUtil.Update_List(CmbxProyects, XMLProyect.GetListProyects(), DefaultOption: "[TODOS]");
         }
 
         private void UpdateListEnverioments()
         {
-            FormUtil.Update_List(CmbxEnverioments, ConstantsUtil.Enverioments);
+            FormUtil.Update_List(CmbxEnverioments, ConstantsUtil.Enverioments, DefaultOption: "[TODOS]");
         }
         private void CleanForm()
         {
@@ -110,6 +110,11 @@ namespace SureVersion.Forms
         private void Exec_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnRefreshProyects_Click(object sender, EventArgs e)
+        {
+            UpdateListProyects();
         }
     }
 }

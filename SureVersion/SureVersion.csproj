@@ -150,6 +150,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\icon.ico" />
+    <Content Include="Resources\reflesh2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
