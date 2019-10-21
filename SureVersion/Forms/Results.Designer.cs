@@ -41,13 +41,14 @@
             // 
             this.DataGridResult.AllowUserToAddRows = false;
             this.DataGridResult.AllowUserToDeleteRows = false;
-            this.DataGridResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.DataGridResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridResult.Location = new System.Drawing.Point(0, 0);
             this.DataGridResult.Name = "DataGridResult";
             this.DataGridResult.ReadOnly = true;
-            this.DataGridResult.Size = new System.Drawing.Size(984, 421);
+            this.DataGridResult.Size = new System.Drawing.Size(984, 480);
             this.DataGridResult.TabIndex = 0;
             // 
             // panel1
@@ -55,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 87);
+            this.panel1.Size = new System.Drawing.Size(984, 28);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -63,9 +64,9 @@
             this.panel2.Controls.Add(this.LblStatus);
             this.panel2.Controls.Add(this.DataGridResult);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 87);
+            this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(984, 440);
+            this.panel2.Size = new System.Drawing.Size(984, 499);
             this.panel2.TabIndex = 2;
             // 
             // LblStatus
@@ -74,7 +75,7 @@
             this.LblStatus.AutoSize = true;
             this.LblStatus.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblStatus.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LblStatus.Location = new System.Drawing.Point(3, 424);
+            this.LblStatus.Location = new System.Drawing.Point(3, 483);
             this.LblStatus.Name = "LblStatus";
             this.LblStatus.Size = new System.Drawing.Size(43, 16);
             this.LblStatus.TabIndex = 5;
